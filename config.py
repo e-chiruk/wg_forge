@@ -1,0 +1,5 @@
+dbname='wg_forge_db'
+user='wg_forge'
+password='42a'
+host='db'
+port='5432'

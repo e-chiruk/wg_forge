@@ -1,0 +1,30 @@
+version: '1'
+services:
+  db:
+    image: "yzh44yzh/wg_forge_backend_env:1.1"
+    networks:
+      - db_nw
+  flaskapp:
+    build: .
+    volumes:
+      - .:/opt/services/flaskapp/src
+    networks:
+      - db_nw
+      - web_nw
+    depends_on:
+      - db
+  nginx:
+    image: "nginx:1.13.5"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    networks:
+      - web_nw
+    depends_on:
+      - flaskapp
+networks:
+  db_nw:
+    driver: bridge
+  web_nw:
+    driver: bridge
