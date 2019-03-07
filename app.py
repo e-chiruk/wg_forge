@@ -110,4 +110,4 @@ def post_cat():
     return Response(status=200)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080, host='localhost')
+    app.run(host='0.0.0.0', port=5090, debug=True)
