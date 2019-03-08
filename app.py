@@ -60,7 +60,7 @@ def teardown_request(exeption):
 
 @app.route('/ping', methods=['GET'])
 def ping():
-    return "Cats Service. Version 0.1"
+    return "Cats Service. Version 0.1\n"
 
 @app.route('/get_cat_colors_info', methods=['GET'])
 def get_color_info():
